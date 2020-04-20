@@ -1,10 +1,11 @@
 # blognote-svelte
 
-Rewrite of the BlogNote application using Svelte
+Rewrite of the BlogNote application using Svelte:
+<https://blognote.now.sh/>
 
 # Todo
 
-Categories.svelte still needs some work
+Categories.svelte still needs some work to fix a bug where the "add category"-field stays visible and show/hide posts needs an update
 
 # Things I've learned about Svelte
 
