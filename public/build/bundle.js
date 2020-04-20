@@ -1032,7 +1032,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (65:0) {#each data.categories as cat}
+    // (70:0) {#each data.categories as cat}
     function create_each_block$1(ctx) {
     	let div;
     	let t_value = /*cat*/ ctx[4].name + "";
@@ -1045,7 +1045,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "cat");
     			attr_dev(div, "href", "#");
-    			add_location(div, file$2, 65, 2, 1667);
+    			add_location(div, file$2, 70, 2, 1793);
 
     			dispose = listen_dev(
     				div,
@@ -1076,14 +1076,14 @@ var app = (function () {
     		block,
     		id: create_each_block$1.name,
     		type: "each",
-    		source: "(65:0) {#each data.categories as cat}",
+    		source: "(70:0) {#each data.categories as cat}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (72:0) {:else}
+    // (77:0) {:else}
     function create_else_block(ctx) {
     	let div1;
     	let input;
@@ -1104,15 +1104,15 @@ var app = (function () {
     			attr_dev(input, "class", "form-control");
     			attr_dev(input, "placeholder", "Category");
     			attr_dev(input, "id", "add-category");
-    			add_location(input, file$2, 73, 2, 1898);
+    			add_location(input, file$2, 78, 2, 2024);
     			attr_dev(button, "class", "btn btn-outline-light");
     			attr_dev(button, "type", "button");
     			attr_dev(button, "id", "button-addon");
-    			add_location(button, file$2, 75, 4, 2019);
+    			add_location(button, file$2, 80, 4, 2145);
     			attr_dev(div0, "class", "input-group-append");
-    			add_location(div0, file$2, 74, 2, 1982);
+    			add_location(div0, file$2, 79, 2, 2108);
     			attr_dev(div1, "class", "input-group mb-3");
-    			add_location(div1, file$2, 72, 0, 1865);
+    			add_location(div1, file$2, 77, 0, 1991);
     			dispose = listen_dev(button, "click", /*addCategory*/ ctx[3], false, false, false);
     		},
     		m: function mount(target, anchor) {
@@ -1133,14 +1133,14 @@ var app = (function () {
     		block,
     		id: create_else_block.name,
     		type: "else",
-    		source: "(72:0) {:else}",
+    		source: "(77:0) {:else}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (70:0) {#if !addcat}
+    // (75:0) {#if !addcat}
     function create_if_block$1(ctx) {
     	let i;
     	let t;
@@ -1150,7 +1150,7 @@ var app = (function () {
     			i = element("i");
     			t = text("  add category");
     			attr_dev(i, "class", "fas fa-plus");
-    			add_location(i, file$2, 70, 0, 1810);
+    			add_location(i, file$2, 75, 0, 1936);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, i, anchor);
@@ -1167,7 +1167,7 @@ var app = (function () {
     		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(70:0) {#if !addcat}",
+    		source: "(75:0) {#if !addcat}",
     		ctx
     	});
 
@@ -1211,13 +1211,16 @@ var app = (function () {
     			div1 = element("div");
     			if_block.c();
     			attr_dev(div0, "class", "cat");
-    			attr_dev(div0, "onclick", "showAllEntries();");
-    			add_location(div0, file$2, 62, 0, 1578);
+    			add_location(div0, file$2, 67, 0, 1706);
     			attr_dev(div1, "class", "add-cat");
-    			add_location(div1, file$2, 68, 0, 1752);
+    			add_location(div1, file$2, 73, 0, 1878);
     			attr_dev(div2, "class", "categories");
-    			add_location(div2, file$2, 61, 0, 1553);
-    			dispose = listen_dev(div1, "click", /*showAddCat*/ ctx[2], false, false, false);
+    			add_location(div2, file$2, 66, 0, 1681);
+
+    			dispose = [
+    				listen_dev(div0, "click", showAllEntries, false, false, false),
+    				listen_dev(div1, "click", /*showAddCat*/ ctx[2], false, false, false)
+    			];
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -1277,7 +1280,7 @@ var app = (function () {
     			if (detaching) detach_dev(div2);
     			destroy_each(each_blocks, detaching);
     			if_block.d();
-    			dispose();
+    			run_all(dispose);
     		}
     	};
 
@@ -1298,6 +1301,12 @@ var app = (function () {
     	});
 
     	document.querySelectorAll("[data-category=" + mycat + "]").forEach(function (el) {
+    		el.style.display = "block";
+    	});
+    }
+
+    function showAllEntries() {
+    	document.querySelectorAll(".item").forEach(function (el) {
     		el.style.display = "block";
     	});
     }

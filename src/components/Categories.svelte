@@ -15,6 +15,12 @@ function setCategory(mycat){
 
 }
 
+function showAllEntries() {
+  document.querySelectorAll('.item').forEach(function(el) {
+    el.style.display = 'block';
+  });
+}
+
 function showAddCat(){
   addcat = true;
 }
@@ -58,9 +64,8 @@ function slugify(string) {
 
 </script>
 
-
 <div class="categories">
-<div class="cat" onclick="showAllEntries();">All</div>
+<div class="cat" on:click={showAllEntries}>All</div>
 
 {#each data.categories as cat}
   <div class="cat" href="#" on:click={setCategory(cat.slug)}>{cat.name}</div>
