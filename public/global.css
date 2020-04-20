@@ -1,0 +1,67 @@
+html, body, main, main .row{
+	height: 100%;
+}
+
+main{
+	margin: 0;
+	padding: 0 !important;
+}
+
+#side{
+	background-color: #252A3A;
+	color: white;
+	padding: 20px;
+}
+
+#posts{
+	border-right: 1px solid #DDD;
+}
+
+#main{
+	padding: 20px;
+}
+
+.item{
+	padding: 20px;
+	border-bottom: 1px solid #DDD;
+	width: 100%;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	float: left;
+user-select: none;
+}
+
+.form-control{
+	margin-bottom: 10px;
+}
+
+textarea{
+	min-height: 350px;
+}
+
+.cat{
+	display: block;
+	color: white;
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+.categories{
+	padding-top: 15px;
+	color: white;
+}
+
+.add-cat{
+	padding-top: 10px;
+	cursor: pointer;
+}
+
+.item{
+  border-left: 5px solid #FFF;
+}
+
+.active{
+  background-color: #EEE;
+  border-left: 5px solid #1B98F8;
+}
