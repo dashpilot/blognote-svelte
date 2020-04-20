@@ -386,7 +386,7 @@ var app = (function () {
     	return child_ctx;
     }
 
-    // (22:0) {#each data.entries as item }
+    // (11:2) {#each data.entries as item }
     function create_each_block_2(ctx) {
     	let div;
     	let t0_value = /*item*/ ctx[6].title + "";
@@ -407,7 +407,7 @@ var app = (function () {
     			attr_dev(div, "class", "item");
     			attr_dev(div, "data-category", div_data_category_value = /*item*/ ctx[6].category);
     			toggle_class(div, "active", /*current*/ ctx[1] === /*item*/ ctx[6].id);
-    			add_location(div, file, 22, 0, 181);
+    			add_location(div, file, 11, 2, 185);
 
     			dispose = [
     				listen_dev(
@@ -450,14 +450,14 @@ var app = (function () {
     		block,
     		id: create_each_block_2.name,
     		type: "each",
-    		source: "(22:0) {#each data.entries as item }",
+    		source: "(11:2) {#each data.entries as item }",
     		ctx
     	});
 
     	return block;
     }
 
-    // (33:2) {#if current==item.id}
+    // (22:2) {#if current==item.id}
     function create_if_block(ctx) {
     	let input;
     	let t0;
@@ -495,13 +495,13 @@ var app = (function () {
     			t1 = space();
     			textarea = element("textarea");
     			attr_dev(input, "class", "form-control");
-    			add_location(input, file, 33, 2, 460);
+    			add_location(input, file, 22, 2, 472);
     			attr_dev(select, "class", "form-control");
     			if (/*item*/ ctx[6].category === void 0) add_render_callback(select_change_handler);
-    			add_location(select, file, 35, 2, 516);
+    			add_location(select, file, 24, 2, 528);
     			attr_dev(textarea, "class", "form-control");
     			textarea.value = textarea_value_value = /*item*/ ctx[6].body;
-    			add_location(textarea, file, 41, 2, 680);
+    			add_location(textarea, file, 30, 2, 692);
 
     			dispose = [
     				listen_dev(input, "input", input_input_handler),
@@ -575,14 +575,14 @@ var app = (function () {
     		block,
     		id: create_if_block.name,
     		type: "if",
-    		source: "(33:2) {#if current==item.id}",
+    		source: "(22:2) {#if current==item.id}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (37:2) {#each data.categories as cat}
+    // (26:2) {#each data.categories as cat}
     function create_each_block_1(ctx) {
     	let option;
     	let t_value = /*cat*/ ctx[9].name + "";
@@ -595,7 +595,7 @@ var app = (function () {
     			t = text(t_value);
     			option.__value = option_value_value = /*cat*/ ctx[9].slug;
     			option.value = option.__value;
-    			add_location(option, file, 37, 2, 608);
+    			add_location(option, file, 26, 2, 620);
     		},
     		m: function mount(target, anchor) {
     			insert_dev(target, option, anchor);
@@ -619,14 +619,14 @@ var app = (function () {
     		block,
     		id: create_each_block_1.name,
     		type: "each",
-    		source: "(37:2) {#each data.categories as cat}",
+    		source: "(26:2) {#each data.categories as cat}",
     		ctx
     	});
 
     	return block;
     }
 
-    // (32:0) {#each data.entries as item }
+    // (21:0) {#each data.entries as item }
     function create_each_block(ctx) {
     	let if_block_anchor;
     	let if_block = /*current*/ ctx[1] == /*item*/ ctx[6].id && create_if_block(ctx);
@@ -664,7 +664,7 @@ var app = (function () {
     		block,
     		id: create_each_block.name,
     		type: "each",
-    		source: "(32:0) {#each data.entries as item }",
+    		source: "(21:0) {#each data.entries as item }",
     		ctx
     	});
 
@@ -706,10 +706,10 @@ var app = (function () {
 
     			attr_dev(div0, "class", "col-md-4");
     			attr_dev(div0, "id", "posts");
-    			add_location(div0, file, 20, 0, 117);
+    			add_location(div0, file, 9, 0, 117);
     			attr_dev(div1, "class", "col-md-6");
     			attr_dev(div1, "id", "main");
-    			add_location(div1, file, 28, 0, 368);
+    			add_location(div1, file, 18, 0, 381);
     		},
     		l: function claim(nodes) {
     			throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -901,7 +901,7 @@ var app = (function () {
     			button = element("button");
     			button.textContent = "Add Post";
     			attr_dev(button, "class", "btn btn-outline-light w-100");
-    			add_location(button, file$1, 27, 0, 649);
+    			add_location(button, file$1, 25, 0, 647);
     			dispose = listen_dev(button, "click", /*addEntry*/ ctx[0], false, false, false);
     		},
     		l: function claim(nodes) {
@@ -1045,7 +1045,7 @@ var app = (function () {
     			t = text(t_value);
     			attr_dev(div, "class", "cat");
     			attr_dev(div, "href", "#");
-    			add_location(div, file$2, 65, 0, 1574);
+    			add_location(div, file$2, 65, 2, 1667);
 
     			dispose = listen_dev(
     				div,
@@ -1083,41 +1083,8 @@ var app = (function () {
     	return block;
     }
 
-    // (71:0) {#if !addcat}
-    function create_if_block_1(ctx) {
-    	let i;
-    	let t;
-
-    	const block = {
-    		c: function create() {
-    			i = element("i");
-    			t = text("  add category");
-    			attr_dev(i, "class", "fas fa-plus");
-    			add_location(i, file$2, 71, 0, 1718);
-    		},
-    		m: function mount(target, anchor) {
-    			insert_dev(target, i, anchor);
-    			insert_dev(target, t, anchor);
-    		},
-    		d: function destroy(detaching) {
-    			if (detaching) detach_dev(i);
-    			if (detaching) detach_dev(t);
-    		}
-    	};
-
-    	dispatch_dev("SvelteRegisterBlock", {
-    		block,
-    		id: create_if_block_1.name,
-    		type: "if",
-    		source: "(71:0) {#if !addcat}",
-    		ctx
-    	});
-
-    	return block;
-    }
-
-    // (75:0) {#if addcat}
-    function create_if_block$1(ctx) {
+    // (72:0) {:else}
+    function create_else_block(ctx) {
     	let div1;
     	let input;
     	let t0;
@@ -1137,15 +1104,15 @@ var app = (function () {
     			attr_dev(input, "class", "form-control");
     			attr_dev(input, "placeholder", "Category");
     			attr_dev(input, "id", "add-category");
-    			add_location(input, file$2, 76, 2, 1818);
+    			add_location(input, file$2, 73, 2, 1898);
     			attr_dev(button, "class", "btn btn-outline-light");
     			attr_dev(button, "type", "button");
     			attr_dev(button, "id", "button-addon");
-    			add_location(button, file$2, 78, 4, 1939);
+    			add_location(button, file$2, 75, 4, 2019);
     			attr_dev(div0, "class", "input-group-append");
-    			add_location(div0, file$2, 77, 2, 1902);
+    			add_location(div0, file$2, 74, 2, 1982);
     			attr_dev(div1, "class", "input-group mb-3");
-    			add_location(div1, file$2, 75, 0, 1785);
+    			add_location(div1, file$2, 72, 0, 1865);
     			dispose = listen_dev(button, "click", /*addCategory*/ ctx[3], false, false, false);
     		},
     		m: function mount(target, anchor) {
@@ -1164,9 +1131,43 @@ var app = (function () {
 
     	dispatch_dev("SvelteRegisterBlock", {
     		block,
+    		id: create_else_block.name,
+    		type: "else",
+    		source: "(72:0) {:else}",
+    		ctx
+    	});
+
+    	return block;
+    }
+
+    // (70:0) {#if !addcat}
+    function create_if_block$1(ctx) {
+    	let i;
+    	let t;
+
+    	const block = {
+    		c: function create() {
+    			i = element("i");
+    			t = text("  add category");
+    			attr_dev(i, "class", "fas fa-plus");
+    			add_location(i, file$2, 70, 0, 1810);
+    		},
+    		m: function mount(target, anchor) {
+    			insert_dev(target, i, anchor);
+    			insert_dev(target, t, anchor);
+    		},
+    		p: noop,
+    		d: function destroy(detaching) {
+    			if (detaching) detach_dev(i);
+    			if (detaching) detach_dev(t);
+    		}
+    	};
+
+    	dispatch_dev("SvelteRegisterBlock", {
+    		block,
     		id: create_if_block$1.name,
     		type: "if",
-    		source: "(75:0) {#if addcat}",
+    		source: "(70:0) {#if !addcat}",
     		ctx
     	});
 
@@ -1179,7 +1180,6 @@ var app = (function () {
     	let t1;
     	let t2;
     	let div1;
-    	let t3;
     	let dispose;
     	let each_value = /*data*/ ctx[0].categories;
     	let each_blocks = [];
@@ -1188,8 +1188,13 @@ var app = (function () {
     		each_blocks[i] = create_each_block$1(get_each_context$1(ctx, each_value, i));
     	}
 
-    	let if_block0 = !/*addcat*/ ctx[1] && create_if_block_1(ctx);
-    	let if_block1 = /*addcat*/ ctx[1] && create_if_block$1(ctx);
+    	function select_block_type(ctx, dirty) {
+    		if (!/*addcat*/ ctx[1]) return create_if_block$1;
+    		return create_else_block;
+    	}
+
+    	let current_block_type = select_block_type(ctx);
+    	let if_block = current_block_type(ctx);
 
     	const block = {
     		c: function create() {
@@ -1204,16 +1209,14 @@ var app = (function () {
 
     			t2 = space();
     			div1 = element("div");
-    			if (if_block0) if_block0.c();
-    			t3 = space();
-    			if (if_block1) if_block1.c();
+    			if_block.c();
     			attr_dev(div0, "class", "cat");
     			attr_dev(div0, "onclick", "showAllEntries();");
-    			add_location(div0, file$2, 62, 0, 1487);
+    			add_location(div0, file$2, 62, 0, 1578);
     			attr_dev(div1, "class", "add-cat");
-    			add_location(div1, file$2, 69, 0, 1660);
+    			add_location(div1, file$2, 68, 0, 1752);
     			attr_dev(div2, "class", "categories");
-    			add_location(div2, file$2, 61, 0, 1462);
+    			add_location(div2, file$2, 61, 0, 1553);
     			dispose = listen_dev(div1, "click", /*showAddCat*/ ctx[2], false, false, false);
     		},
     		l: function claim(nodes) {
@@ -1230,9 +1233,7 @@ var app = (function () {
 
     			append_dev(div2, t2);
     			append_dev(div2, div1);
-    			if (if_block0) if_block0.m(div1, null);
-    			append_dev(div1, t3);
-    			if (if_block1) if_block1.m(div1, null);
+    			if_block.m(div1, null);
     		},
     		p: function update(ctx, [dirty]) {
     			if (dirty & /*setCategory, data*/ 1) {
@@ -1258,28 +1259,16 @@ var app = (function () {
     				each_blocks.length = each_value.length;
     			}
 
-    			if (!/*addcat*/ ctx[1]) {
-    				if (!if_block0) {
-    					if_block0 = create_if_block_1(ctx);
-    					if_block0.c();
-    					if_block0.m(div1, t3);
-    				}
-    			} else if (if_block0) {
-    				if_block0.d(1);
-    				if_block0 = null;
-    			}
+    			if (current_block_type === (current_block_type = select_block_type(ctx)) && if_block) {
+    				if_block.p(ctx, dirty);
+    			} else {
+    				if_block.d(1);
+    				if_block = current_block_type(ctx);
 
-    			if (/*addcat*/ ctx[1]) {
-    				if (if_block1) {
-    					if_block1.p(ctx, dirty);
-    				} else {
-    					if_block1 = create_if_block$1(ctx);
-    					if_block1.c();
-    					if_block1.m(div1, null);
+    				if (if_block) {
+    					if_block.c();
+    					if_block.m(div1, null);
     				}
-    			} else if (if_block1) {
-    				if_block1.d(1);
-    				if_block1 = null;
     			}
     		},
     		i: noop,
@@ -1287,8 +1276,7 @@ var app = (function () {
     		d: function destroy(detaching) {
     			if (detaching) detach_dev(div2);
     			destroy_each(each_blocks, detaching);
-    			if (if_block0) if_block0.d();
-    			if (if_block1) if_block1.d();
+    			if_block.d();
     			dispose();
     		}
     	};
@@ -1336,11 +1324,13 @@ var app = (function () {
     			let newitem = { name: category, slug: slugify(category) };
     			data.categories.push(newitem);
     			$$invalidate(0, data);
+
+    			setTimeout(() => {
+    				$$invalidate(1, addcat = false);
+    			});
     		} else {
     			alert("Category name should be at least 5 characters long");
     		}
-
-    		$$invalidate(1, addcat = false);
     	}
 
     	const writable_props = ["data"];

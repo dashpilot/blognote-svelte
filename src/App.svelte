@@ -44,6 +44,7 @@
 <div class="row no-gutters">
 <div class="col-md-2" id="side">
 
+
 <AddPost bind:data={data} bind:current={current} />
 
 <Categories bind:data={data} />

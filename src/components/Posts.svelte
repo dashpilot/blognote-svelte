@@ -1,33 +1,22 @@
 <script>
+  export let data;
+  export let current;
 
-
-export let data;
-export let current;
-
-
-function setEntry(item){
-
-  current = item.id;
-}
-
-
-
-
-
-
-
+  function setEntry(item) {
+    current = item.id;
+  }
 </script>
 
 <div class="col-md-4" id="posts">
-{#each data.entries as item }
-<div class="item" on:click={setEntry(item)} class:active="{current === item.id}"
-	on:click="{() => current = item.id}" data-category="{item.category}">
-{item.title}
+  {#each data.entries as item }
+  <div class="item" on:click={setEntry(item)} class:active="{current === item.id}"
+  	on:click="{() => current = item.id}" data-category="{item.category}">
+  {item.title}
+  </div>
+  {/each}
 </div>
-{/each}
-</div>
-<div class="col-md-6" id="main">
 
+<div class="col-md-6" id="main">
 
 {#each data.entries as item }
   {#if current==item.id}
