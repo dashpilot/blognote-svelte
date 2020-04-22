@@ -1,5 +1,4 @@
 <script>
-  import Nav from './components/Nav.svelte';
   import Posts from './components/Posts.svelte';
 	import AddPost from './components/AddPost.svelte';
 	import Categories from './components/Categories.svelte';
@@ -41,20 +40,38 @@
 </script>
 
 
-<Nav/>
+
 <main>
 
 <div class="row no-gutters">
 <div class="col-md-2" id="side">
 
 
-<AddPost bind:data={data} bind:current={current} />
+
 
 <Categories bind:data={data} />
 
 </div>
 
+
+<div class="col-md-10">
+
+<nav>
+<div class="row">
+<div class="col-md-6">
+<AddPost bind:data={data} />
+</div>
+<div class="col-md-6 text-right">
+<button class="btn btn-outline-dark">Publish</button>
+</div>
+</div>
+</nav>
+
+
+
+
 <Posts bind:data={data} bind:current={current} />
+</div>
 
 
 </div>

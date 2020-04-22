@@ -7,6 +7,9 @@
   }
 </script>
 
+
+<div class="row no-gutters" id="maincols">
+
 <div class="col-md-4" id="posts">
   {#each data.entries as item }
   <div class="item" on:click={setEntry(item)} class:active="{current === item.id}"
@@ -16,7 +19,7 @@
   {/each}
 </div>
 
-<div class="col-md-6" id="main">
+<div class="col-md-8" id="main">
 
 {#each data.entries as item }
   {#if current==item.id}
@@ -32,5 +35,7 @@
   {/if}
 {/each}
 
+
+</div>
 
 </div>
