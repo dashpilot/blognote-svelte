@@ -1,10 +1,11 @@
-html, body, main, main .row{
+html, body, main .row{
 	height: 100%;
 }
 
 main{
 	margin: 0;
 	padding: 0 !important;
+	height: calc(100% - 59px);
 }
 
 #side{

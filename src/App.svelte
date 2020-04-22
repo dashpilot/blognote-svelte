@@ -1,4 +1,5 @@
 <script>
+  import Nav from './components/Nav.svelte';
   import Posts from './components/Posts.svelte';
 	import AddPost from './components/AddPost.svelte';
 	import Categories from './components/Categories.svelte';
@@ -39,6 +40,8 @@
 
 </script>
 
+
+<Nav/>
 <main>
 
 <div class="row no-gutters">
