@@ -12,7 +12,7 @@ html, body, main, .row{
 	background-color: #252A3A;
 	color: white;
 	padding: 20px;
-
+	padding-top: 5px;
 }
 
 #posts{
