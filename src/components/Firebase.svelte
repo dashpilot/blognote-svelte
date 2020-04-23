@@ -2,6 +2,7 @@
   export let data;
   let spinner = true;
   let loggedin = false;
+  let saving = false;
 
   var firebaseConfig = {
     apiKey: "AIzaSyBJQ3SttWZrZ7K7qKdwln7J57OjzXJ9CUc",
@@ -15,11 +16,8 @@
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-
   var provider = new firebase.auth.GoogleAuthProvider();
-  //provider.addScope('repo');
   var db = firebase.firestore();
-
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
@@ -27,52 +25,28 @@
       loggedin = true;
 
       console.log(user.uid);
-
       console.log("User is signed in");
 
-      /*
-      docRef = db.collection("users").doc(user.uid);
-
-      docRef.get().then(function(doc) {
-        if (doc.exists) {
-          let site = doc.data();
-          console.log(site);
-          $('#site-name').text(site.site_title);
+      // important! here we update the app data
+      let docRef = db.collection('users').doc(user.uid);
+      let getDoc = docRef.get()
+      .then(doc => {
+        if (!doc.exists) {
+          console.log('No such document!');
         } else {
-          console.log('site data not found');
+          console.log('Document data:', doc.data());
 
-          let data = {
-            name: user.displayName,
-            user: user.email
-          };
-
-          let setDoc = db.collection('users').doc(user.uid).set(data);
+          // important! here we update the app data
+          data = doc.data();
 
         }
-
-
-
-      }).catch(function(error) {
-        console.log("Error getting document:", error);
-
-
-        let data = {
-          name: user.displayName,
-          user: user.email
-        };
-
-        let setDoc = db.collection('users').doc(user.uid).set(data);
-        *
-
-
+      })
+      .catch(err => {
+        console.log('Error getting document', err);
       });
 
-      */
-
-      //loadRemote(user.uid);
 
     } else {
-      // No user is signed in.
 
       console.log("User not logged in");
 
@@ -91,39 +65,6 @@
     if (result.credential) {
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
       var token = result.credential.accessToken;
-
-      /*
-      let opts = {};
-      opts.token = token;
-
-      fetch('api/repos', {
-        method: 'post',
-        body: JSON.stringify(opts)
-      }).then(function(response) {
-        return response.json();
-      }).then(function(data) {
-
-
-        let repos = '';
-
-        for (const item of data.result.data) {
-          console.log(item.name);
-          repos += `<option value="${item.name}">${item.name}</option>`;
-        }
-
-
-        $('#repos').html(repos);
-
-        $('#publish').show();
-
-        $('footer').hide();
-
-
-
-      });
-
-        */
-
 
     }
     // The signed-in user info.
@@ -145,13 +86,29 @@
     var credential = error.credential;
 
     console.log(errorMessage);
-    // ...
+
   });
+
+
+  function save(){
+
+    saving = true;
+
+    let user = firebase.auth().currentUser;
+
+    let setDoc = db.collection('users').doc(user.uid).set(data);
+
+    setTimeout(function(){
+      saving = false;
+    }, 2000);
+
+  }
 
 
 </script>
 
 {#if !loggedin}
+
 <div class="backdrop">
 <div class="modal" style="display: block;">
   <div class="modal-dialog" role="document">
@@ -173,6 +130,10 @@
   </div>
 </div>
 </div>
+{:else}
+
+<button class="btn btn-outline-dark" on:click={save}>{#if saving}<i class="fa fa-spinner fa-spin"></i> &nbsp;{:else}<i class="fa fa-save"></i> &nbsp;{/if}Save</button>
+
 {/if}
 
 <style>
