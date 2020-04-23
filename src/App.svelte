@@ -7,31 +7,15 @@
 	let data = {};
 	data.entries = [{
 	    id: '3KvB5k89',
-	    title: 'Hello there',
+	    title: 'Welcome to BlogNote!',
 	    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	    category: 'default'
-	  },
-	  {
-	    id: '4Kf79Op',
-	    title: 'Second article',
-	    body: 'Sed a consectetur urna. Nulla sollicitudin pulvinar leo nec ultricies.',
-	    category: 'default'
-	  },
-	  {
-	    id: '5gHRc9i',
-	    title: 'Third article',
-	    body: 'Vestibulum diam massa, fermentum vel suscipit eget, rhoncus vitae metus.',
-	    category: 'ideas'
 	  }
 	];
 
 	data.categories = [{
 	    name: 'default',
 	    slug: 'default'
-	  },
-	  {
-	    name: 'ideas',
-	    slug: 'ideas'
 	  }
 	];
 
