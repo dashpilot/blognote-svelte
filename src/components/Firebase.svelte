@@ -4,19 +4,20 @@
   let loggedin = false;
 
   var firebaseConfig = {
-    apiKey: "AIzaSyCEGqKRTYM6nV43ERaqPuyfeP78rWYrLv0",
-    authDomain: "github-auth-d7ca4.firebaseapp.com",
-    databaseURL: "https://github-auth-d7ca4.firebaseio.com",
-    projectId: "github-auth-d7ca4",
-    storageBucket: "github-auth-d7ca4.appspot.com",
-    messagingSenderId: "881243932931",
-    appId: "1:881243932931:web:f1fa46f91a4b4359990136"
+    apiKey: "AIzaSyBJQ3SttWZrZ7K7qKdwln7J57OjzXJ9CUc",
+    authDomain: "blognote-ffbbb.firebaseapp.com",
+    databaseURL: "https://blognote-ffbbb.firebaseio.com",
+    projectId: "blognote-ffbbb",
+    storageBucket: "blognote-ffbbb.appspot.com",
+    messagingSenderId: "803950215522",
+    appId: "1:803950215522:web:e7690ead619f6c7f84ac3b"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
 
-  var provider = new firebase.auth.GithubAuthProvider();
-  provider.addScope('repo');
+
+  var provider = new firebase.auth.GoogleAuthProvider();
+  //provider.addScope('repo');
   var db = firebase.firestore();
 
 
@@ -156,17 +157,17 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Sign in to your Github account</h5>
+        <h5 class="modal-title">Sign in with your Google Account</h5>
       </div>
       <div class="modal-body text-center">
       {#if spinner}
-      <img src="/assets/img/spinner.gif" style="width: 25%;" />
+      <img src="/assets/img/spinner.gif" alt="loading" style="width: 25%;" />
       {:else}
-      Sign in to your Github account
+      Sign in with your Google Account
       {/if}
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline-dark" on:click="{login}">Sign in to Github</button>
+        <button class="btn btn-outline-dark" on:click="{login}">Sign in with your Google</button>
       </div>
     </div>
   </div>
