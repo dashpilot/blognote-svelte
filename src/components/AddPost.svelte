@@ -1,7 +1,6 @@
 <script>
 
 export let data;
-export let current;
 
 function addEntry(){
 	let newitem = {id: makeid(6), title:'Untitled', body:''};

@@ -2,6 +2,7 @@
   import Posts from './components/Posts.svelte';
 	import AddPost from './components/AddPost.svelte';
 	import Categories from './components/Categories.svelte';
+  import Firebase from './components/Firebase.svelte';
 
 	let data = {};
 	data.entries = [{
@@ -62,7 +63,7 @@
 <AddPost bind:data={data} />
 </div>
 <div class="col-md-6 text-right">
-<button class="btn btn-outline-dark">Publish</button>
+<Firebase bind:data={data} />
 </div>
 </div>
 </nav>
