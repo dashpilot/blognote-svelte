@@ -1,4 +1,6 @@
 <script>
+  import TextEditor from './TextEditor.svelte';
+
   export let data;
   export let current;
 
@@ -25,13 +27,15 @@
   {#if current==item.id}
   <input bind:value={item.title} class="form-control">
 
+  <TextEditor bind:item={item}/>
+
   <select class="form-control" bind:value={item.category}>
   {#each data.categories as cat}
   <option value="{cat.slug}">{cat.name}</option>
   {/each}
   </select>
 
-  <textarea class="form-control">{item.body}</textarea>
+  <!-- <textarea class="form-control">{item.body}</textarea>-->
   {/if}
 {/each}
 
