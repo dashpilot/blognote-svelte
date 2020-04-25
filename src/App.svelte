@@ -31,10 +31,9 @@
 <div class="row no-gutters">
 <div class="col-md-2" id="side">
 
-
-
-
 <Categories bind:data={data} />
+
+
 
 </div>
 
@@ -65,5 +64,10 @@
 
 
 <style>
-
+#side{
+  background-image: url(/assets/img/blognote-logo-inv.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
 </style>

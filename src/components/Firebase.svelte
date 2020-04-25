@@ -137,7 +137,7 @@ import { fade, fly } from 'svelte/transition';
 
 <div class="loading-screen" out:fly={{ x:-400, duration: 1000 }}>
 <div class="login-screen" style="display: block;">
-<img src="/assets/img/logo.png" id="logo" />
+<img src="/assets/img/blognote-logo.png" id="logo" />
 <div>
 {#if spinner}
 <img src="/assets/img/spinner.gif" alt="loading" style="width: 25%;" />
