@@ -201,7 +201,7 @@ text-align: center;
 
 #logout{
   position: fixed;
-  left: 80px;
+  left: 4.3%;
   bottom: 15px;
   border: 0;
 }
