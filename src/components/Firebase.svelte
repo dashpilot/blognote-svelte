@@ -26,7 +26,7 @@ import { fly } from 'svelte/transition';
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-      loggedin = true;
+
 
       console.log(user.uid);
       console.log("User is signed in");
@@ -50,6 +50,10 @@ import { fly } from 'svelte/transition';
       .catch(err => {
         console.log('Error getting document', err);
       });
+
+      window.setTimeout(function(){
+        loggedin = true;
+      }, 500)
 
 
     } else {
@@ -88,8 +92,7 @@ import { fly } from 'svelte/transition';
     console.log(user);
     localStorage.setItem('username', user.displayName);
 
-
-spinner = false;
+    spinner = false;
 
     //  $('footer').html('<b>Choose a repo:</b>');
 
