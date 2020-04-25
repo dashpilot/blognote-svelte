@@ -1,6 +1,7 @@
 <script>
 
 export let data;
+export let current;
 
 function addEntry(){
 	let newitem = {id: makeid(6), title:'Untitled', body:''};
@@ -8,6 +9,7 @@ function addEntry(){
 
   data.entries = data.entries; // reassign, else it won't update
   current = data.entries[0].id; // set the currently selected item
+
 }
 
 function makeid(length) {

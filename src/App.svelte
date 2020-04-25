@@ -44,15 +44,13 @@
 <nav>
 <div class="row">
 <div class="col-md-6">
-<AddPost bind:data={data} />
+<AddPost bind:data={data} bind:current={current} />
 </div>
 <div class="col-md-6 text-right">
-<Firebase bind:data={data} />
+<Firebase bind:data={data} bind:current={current} />
 </div>
 </div>
 </nav>
-
-
 
 
 <Posts bind:data={data} bind:current={current} />
