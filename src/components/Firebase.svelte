@@ -157,7 +157,7 @@ import { fade, fly } from 'svelte/transition';
 
 <button class="btn btn-outline-dark" on:click={save}>{#if saving}<i class="fa fa-spinner fa-spin"></i> &nbsp;{:else}<i class="fa fa-save"></i> &nbsp;{/if}Save</button>
 
-<button class="btn btn-outline-dark" on:click={logout}><i class="fa fa-sign-out"></i> &nbsp;Log Out</button>
+<button class="btn btn-outline-light" id="logout" on:click={logout}><i class="fa fa-sign-out"></i> &nbsp;Log Out</button>
 
 {/if}
 
@@ -197,6 +197,13 @@ text-align: center;
   border: 4px solid black;
   padding: 15px;
   border-radius: 15px;
+}
+
+#logout{
+  position: fixed;
+  left: 80px;
+  bottom: 15px;
+  border: 0;
 }
 
 </style>
