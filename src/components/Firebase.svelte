@@ -1,5 +1,5 @@
 <script>
-import { fly } from 'svelte/transition';
+import { fade, fly } from 'svelte/transition';
 
   export let data;
   export let current;
@@ -7,6 +7,7 @@ import { fly } from 'svelte/transition';
   let spinner = true;
   let loggedin = false;
   let saving = false;
+  let signin = false;
 
   var firebaseConfig = {
     apiKey: "AIzaSyBJQ3SttWZrZ7K7qKdwln7J57OjzXJ9CUc",
@@ -26,7 +27,8 @@ import { fly } from 'svelte/transition';
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
       // User is signed in.
-
+      loggedin = true;
+      spinner = false;
 
       console.log(user.uid);
       console.log("User is signed in");
@@ -51,15 +53,13 @@ import { fly } from 'svelte/transition';
         console.log('Error getting document', err);
       });
 
-      window.setTimeout(function(){
-        loggedin = true;
-      }, 500)
+
 
 
     } else {
 
       console.log("User not logged in");
-
+      signin = true;
     }
   });
 
@@ -71,6 +71,7 @@ import { fly } from 'svelte/transition';
   function logout(){
     firebase.auth().signOut().then(function() {
     loggedin = false;
+    spinner = false;
     }).catch(function(error) {
       // An error happened.
     });
@@ -85,6 +86,10 @@ import { fly } from 'svelte/transition';
       // This gives you a GitHub Access Token. You can use it to access the GitHub API.
       var token = result.credential.accessToken;
 
+
+        spinner = false;
+
+
     }
     // The signed-in user info.
     let user = result.user;
@@ -92,7 +97,7 @@ import { fly } from 'svelte/transition';
     console.log(user);
     localStorage.setItem('username', user.displayName);
 
-    spinner = false;
+
 
     //  $('footer').html('<b>Choose a repo:</b>');
 
@@ -106,6 +111,7 @@ import { fly } from 'svelte/transition';
     var credential = error.credential;
 
     console.log(errorMessage);
+    spinner = false;
 
   });
 
@@ -120,7 +126,7 @@ import { fly } from 'svelte/transition';
 
     setTimeout(function(){
       saving = false;
-    }, 2000);
+    }, 1000);
 
   }
 
@@ -135,11 +141,12 @@ import { fly } from 'svelte/transition';
 <div>
 {#if spinner}
 <img src="/assets/img/spinner.gif" alt="loading" style="width: 25%;" />
-{:else}
-
-<button class="btn btn-outline-dark btn-bold" on:click="{login}"><i class="fa fa-google"></i> &nbsp;Sign in with Google</button>
-
 {/if}
+
+{#if signin}
+<button class="btn btn-outline-dark btn-bold" on:click="{login}"><i class="fa fa-google"></i> &nbsp;Sign in with Google</button>
+{/if}
+
 </div>
 
 
@@ -150,7 +157,7 @@ import { fly } from 'svelte/transition';
 
 <button class="btn btn-outline-dark" on:click={save}>{#if saving}<i class="fa fa-spinner fa-spin"></i> &nbsp;{:else}<i class="fa fa-save"></i> &nbsp;{/if}Save</button>
 
-<button class="btn btn-outline-dark" on:click={logout}>Log Out</button>
+<button class="btn btn-outline-dark" on:click={logout}><i class="fa fa-sign-out"></i> &nbsp;Log Out</button>
 
 {/if}
 
