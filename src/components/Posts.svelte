@@ -1,4 +1,6 @@
+
 <script>
+  //import { onMount } from 'svelte';
   import TextEditor from './TextEditor.svelte';
 
   export let data;
@@ -7,6 +9,22 @@
   function setEntry(item) {
     current = item.id;
   }
+
+/*
+  onMount(async () => {
+    console.log('onmount called');
+  var easyMDE = new EasyMDE({
+    element: document.getElementById('mde'),
+    spellChecker: false
+  });
+
+  easyMDE.codemirror.on("change", function(){
+    item.body = easyMDE.value();
+    console.log(easyMDE.value);
+  });
+  });
+  */
+
 </script>
 
 
@@ -29,13 +47,17 @@
 
   <TextEditor bind:item={item}/>
 
+<!--
+  <textarea class="form-control" id="mde" bind:value={item.body}></textarea>
+  -->
+
   <select class="form-control" bind:value={item.category}>
   {#each data.categories as cat}
   <option value="{cat.slug}">{cat.name}</option>
   {/each}
   </select>
 
-  <!-- <textarea class="form-control">{item.body}</textarea>-->
+
   {/if}
 {/each}
 
@@ -43,6 +65,8 @@
 </div>
 
 </div>
+
+
 
 <style>
 #main{

@@ -43,8 +43,8 @@
 </script>
 
 <div class="btn-group">
-<button on:click={toggleBold} on:mousedown={preventDefault} class="btn btn-outline-dark"><b>B</b></button>
-<button on:click={toggleItalic} on:mousedown={preventDefault} class="btn btn-outline-dark"><em>I</em></button>
+<button on:click={toggleBold} on:mousedown={preventDefault} class="btn btn-outline-dark btn-editor"><b>B</b></button>
+<button on:click={toggleItalic} on:mousedown={preventDefault} class="btn btn-outline-dark btn-editor"><em>I</em></button>
 </div>
 
 <ProsemirrorEditor
