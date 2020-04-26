@@ -13,12 +13,24 @@ function setCategory(mycat){
      el.style.display = 'block';
   });
 
+setActiveCat(mycat)
+
+}
+
+function setActiveCat(mycat){
+  document.querySelectorAll('.cat').forEach(function(el) {
+     el.classList.remove('active-cat')
+  });
+
+  document.querySelector('#cat-'+mycat).classList.add('active-cat');
 }
 
 function showAllEntries() {
   document.querySelectorAll('.item').forEach(function(el) {
     el.style.display = 'block';
   });
+
+  setActiveCat('all')
 }
 
 function showAddCat(){
@@ -64,24 +76,32 @@ function slugify(string) {
 
 </script>
 
-<div class="categories">
-<div class="cat" on:click={showAllEntries}>All</div>
+<nav>
 
-{#each data.categories as cat}
-  <div class="cat" href="#" on:click={setCategory(cat.slug)}>{cat.name}</div>
-{/each}
 
-<div class="add-cat" on:click={showAddCat}>
+<div class="add-cat">
 {#if !addcat}
-<i class="fa fa-plus"></i> &nbsp;add category
+<h6>Categories</h6>
+<button class="btn btn-outline-dark" on:click={showAddCat}><i class="fa fa-plus"></i></button>
 {:else}
 <div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Category" id="add-category">
+  <input type="text" class="form-control" placeholder="Category Name" id="add-category">
   <div class="input-group-append">
-    <button class="btn btn-outline-light" type="button" id="button-addon" on:click={addCategory}>Add</button>
+    <button class="btn btn-outline-dark" type="button" id="button-addon" on:click={addCategory}>Add</button>
   </div>
 </div>
 {/if}
 </div>
+
+</nav>
+
+
+<div class="content">
+
+<div class="cat active-cat" id="cat-all" on:click={showAllEntries}>All</div>
+
+{#each data.categories as cat}
+  <div class="cat" id="cat-{cat.slug}" href="#" on:click={setCategory(cat.slug)}>{cat.name}</div>
+{/each}
 
 </div>

@@ -31,6 +31,30 @@
 <div class="row no-gutters">
 <div class="col-md-2" id="side">
 
+  <Categories bind:data={data} />
+
+
+</div>
+
+<div class="col-md-10">
+
+  <nav class="nopad">
+  <div class="row no-gutters"><div class="col-md-4" id="postnav-left"><div class="pad"><h6>Notes</h6><AddPost bind:data={data} bind:current={current}/></div></div><div class="col-md-8"><div class="pad" style="padding-right: 20px;"><Firebase bind:data={data} bind:current={current} /></div></div></div>
+
+  </nav>
+  <Posts bind:data={data} bind:current={current} />
+
+</div>
+
+</div>
+
+
+
+<!--
+
+<div class="row no-gutters">
+<div class="col-md-2" id="side">
+
 <Categories bind:data={data} />
 
 
@@ -57,13 +81,25 @@
 
 
 </div>
-
+-->
 
 </main>
 
 
 
 <style>
+
+#side{
+	background-color: #252A3A;
+	color: white;
+  border-right: 1px solid #DDD;
+}
+
+
+#postnav-left{
+  border-right: 1px solid #DDD;
+}
+
 /*
 #side{
   background-image: url(/assets/img/blognote-logo-inv.png);

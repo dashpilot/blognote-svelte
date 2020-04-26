@@ -5,22 +5,41 @@ html, body, main, .row{
 #maincols{
 	margin: 0;
 	padding: 0 !important;
-	height: calc(100% - 59px);
+	height: calc(100% - 60px);
 }
 
-#side{
-	background-color: #252A3A;
-	color: white;
-	padding: 20px;
-	padding-top: 5px;
+nav{
+  height: 60px;
+background-color: white;
+  border-bottom: 1px solid #DDD;
+	padding: 10px;
 }
 
-#posts{
-	border-right: 1px solid #DDD;
+nav .btn{
+margin: 0;
+	float: right;
 }
 
-#main{
-	padding: 20px;
+nav h6{
+	float: left;
+margin-top: 8px;
+	color: #CCC;
+}
+
+nav.nopad{
+	padding: 0;
+}
+
+.pad{
+	padding: 10px;
+}
+
+.content{
+  padding: 20px;
+}
+
+#side .content{
+	padding-right: 0;
 }
 
 .item{
@@ -45,18 +64,23 @@ textarea{
 .cat{
 	display: block;
 	color: white;
-	padding-top: 10px;
+	padding: 5px;
+	padding-left: 15px;
 	cursor: pointer;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	color: #888;
+}
+
+.active-cat{
+  color: white;
 }
 
 .categories{
 	color: white;
 }
 
-.add-cat{
-	padding-top: 10px;
-	cursor: pointer;
-}
+
 
 .item{
   border-left: 5px solid #FFF;
@@ -67,12 +91,7 @@ textarea{
   border-left: 5px solid #1B98F8;
 }
 
-nav{
-padding: 10px;
-padding-right: 20px;
-background-color: white;
-border-bottom: 1px solid #DDD;
-}
+
 h5{
   margin-top: 4px;
 }

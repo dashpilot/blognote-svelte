@@ -45,5 +45,10 @@
 </div>
 
 <style>
-
+#main{
+padding: 20px;
+}
+#posts{
+	border-right: 1px solid #DDD;
+}
 </style>
