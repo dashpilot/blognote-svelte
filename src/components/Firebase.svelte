@@ -155,7 +155,7 @@ import { fade, fly } from 'svelte/transition';
 </div>
 {:else}
 
-<button class="btn btn-outline-dark" on:click={save}>{#if saving}<i class="fa fa-spinner fa-spin"></i> &nbsp;{:else}<i class="fa fa-save"></i> &nbsp;{/if}Save</button>
+<button class="btn btn-outline-dark nobrdr" on:click={save}>{#if saving}<i class="fa fa-spinner fa-spin"></i> &nbsp;{:else}<i class="fa fa-save"></i> &nbsp;{/if}Save</button>
 
 <button class="btn btn-outline-light" id="logout" on:click={logout}><i class="fa fa-sign-out"></i> &nbsp;Log Out</button>
 

@@ -82,7 +82,7 @@ function slugify(string) {
 <div class="add-cat">
 {#if !addcat}
 <h6>Categories</h6>
-<button class="btn btn-outline-dark" on:click={showAddCat}><i class="fa fa-plus"></i></button>
+<button class="btn btn-outline-dark nobrdr" on:click={showAddCat}><i class="fa fa-plus"></i></button>
 {:else}
 <div class="input-group mb-3">
   <input type="text" class="form-control" placeholder="Category Name" id="add-category">

@@ -24,4 +24,4 @@ function makeid(length) {
 
 </script>
 
-<button class="btn btn-outline-dark" on:click={addEntry}><i class="fa fa-plus"></i></button>
+<button class="btn btn-outline-dark nobrdr" on:click={addEntry}><i class="fa fa-plus"></i></button>
