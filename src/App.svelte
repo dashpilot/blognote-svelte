@@ -64,10 +64,12 @@
 
 
 <style>
+/*
 #side{
   background-image: url(/assets/img/blognote-logo-inv.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom;
 }
+*/
 </style>
