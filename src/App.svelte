@@ -50,39 +50,6 @@
 
 
 
-<!--
-
-<div class="row no-gutters">
-<div class="col-md-2" id="side">
-
-<Categories bind:data={data} />
-
-
-
-</div>
-
-
-<div class="col-md-10">
-
-<nav>
-<div class="row">
-<div class="col-md-6">
-<AddPost bind:data={data} bind:current={current} />
-</div>
-<div class="col-md-6 text-right">
-<Firebase bind:data={data} bind:current={current} />
-</div>
-</div>
-</nav>
-
-
-<Posts bind:data={data} bind:current={current} />
-</div>
-
-
-</div>
--->
-
 </main>
 
 
@@ -92,13 +59,9 @@
 #side{
 	background-color: #252A3A;
 	color: white;
-  border-right: 1px solid #DDD;
+
 }
 
-
-#postnav-left{
-  border-right: 1px solid #DDD;
-}
 
 /*
 #side{

@@ -18,12 +18,14 @@ background-color: white;
 nav .btn{
 margin: 0;
 	float: right;
+	border: none;
 }
 
 nav h6{
 	float: left;
 margin-top: 8px;
 	color: #CCC;
+
 }
 
 nav.nopad{
