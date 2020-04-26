@@ -13,11 +13,24 @@ nav{
 background-color: white;
   border-bottom: 1px solid #DDD;
 	padding: 10px;
+	padding-left: 20px;
+	padding-right: 15px;
 }
 
 nav .btn{
 margin: 0;
 	float: right;
+
+}
+
+#side nav{
+	background-color: transparent;
+	border-bottom: 0;
+
+}
+
+#side nav h6{
+color: white;
 
 }
 
@@ -34,7 +47,11 @@ margin-top: 8px;
 
 nav.nopad{
 	padding: 0;
+	padding-left: 15px;
+	padding-right: 12px;
 }
+
+
 
 .pad{
 	padding: 10px;
@@ -46,6 +63,7 @@ nav.nopad{
 
 #side .content{
 	padding-right: 0;
+	padding-top: 0;
 }
 
 .item{
@@ -71,7 +89,7 @@ textarea{
 	display: block;
 	color: white;
 	padding: 5px;
-	padding-left: 15px;
+	padding-left: 0px;
 	cursor: pointer;
 	border-top-left-radius: 20px;
 	border-bottom-left-radius: 20px;
