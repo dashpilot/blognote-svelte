@@ -144,7 +144,7 @@ import { fade, fly } from 'svelte/transition';
 {/if}
 
 {#if signin}
-<button class="btn btn-outline-dark btn-bold" on:click="{login}"><i class="fa fa-google"></i> &nbsp;Sign in with Google</button>
+<button class="btn btn-outline-dark btn-bold" on:click="{login}" style="float: none;"><i class="fa fa-google"></i> &nbsp;Sign in with Google</button>
 {/if}
 
 </div>
