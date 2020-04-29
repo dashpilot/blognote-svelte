@@ -24,7 +24,7 @@
 	  }
 	];
 
-	let current = data.entries[0].id;
+	let current = false;
 
 
 

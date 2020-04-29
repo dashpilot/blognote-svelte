@@ -46,6 +46,7 @@
 <div class="col-md-8" id="main">
 
 
+
 {#each data.entries as item }
   {#if current==item.id}
   <input bind:value={item.title} class="form-control">

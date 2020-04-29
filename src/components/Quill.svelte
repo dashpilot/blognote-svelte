@@ -17,7 +17,7 @@
   onMount(async () => {
 
 
-  window.setTimeout(function(){
+  //window.setTimeout(function(){
 
       let quill = new Quill(editor, {
         modules: {
@@ -29,7 +29,7 @@
 
       loaded = true;
 
-  }, 1000)
+  //}, 1000)
 
   });
 
@@ -40,9 +40,11 @@
 </script>
 
 
+<!--
 {#if !loaded}
 <img src="/assets/img/spinner.gif" alt="loading" style="width: 25%;" />
 {/if}
+-->
 
 
 <div class="editor-wrapper mb-3">
