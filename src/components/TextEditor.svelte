@@ -3,7 +3,7 @@
   import ProsemirrorEditor from 'prosemirror-svelte';
 
   // import helpers to work with prosemirror state
-  import { createRichTextEditor, toHTML, clear, toggleMark, setBlockType } from 'prosemirror-svelte/state';
+  import { createRichTextEditor, toHTML, clear, toggleMark, replaceTextAtPosition, setBlockType } from 'prosemirror-svelte/state';
   import { getCurrentMarks, getNodeTypeAtSelectionHead } from "prosemirror-svelte/helpers";
 
   export let item;
@@ -29,6 +29,13 @@
     item.body = toHTML(editorState);
   }
 
+function insertLink(event) {
+  console.log(editorState);
+editorState = replaceTextAtPosition(editorState, editorState.selection.$anchor.pos, editorState.selection.$head.pos, '<a href="https://nu.nl">Nu</a>');
+item.body = toHTML(editorState);
+}
+
+
   function handleChange(event) {
     // get the new editor state from event.detail
     editorState = event.detail.editorState;
@@ -45,6 +52,7 @@
 <div class="btn-group">
 <button on:click={toggleBold} on:mousedown={preventDefault} class="btn btn-outline-dark btn-editor"><b>B</b></button>
 <button on:click={toggleItalic} on:mousedown={preventDefault} class="btn btn-outline-dark btn-editor"><em>I</em></button>
+<button on:click={insertLink} on:mousedown={preventDefault} class="btn btn-outline-dark btn-editor">Link</button>
 </div>
 
 <ProsemirrorEditor

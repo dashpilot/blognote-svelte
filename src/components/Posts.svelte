@@ -1,29 +1,33 @@
 
 <script>
-  //import { onMount } from 'svelte';
-  import TextEditor from './TextEditor.svelte';
+
+  //import TextEditor from './TextEditor.svelte';
+  import Quill from './Quill.svelte';
+
 
   export let data;
   export let current;
+  let catIndex = 0;
 
   function setEntry(item) {
     current = item.id;
+    getCatIndex(item.category)
   }
 
-/*
-  onMount(async () => {
-    console.log('onmount called');
-  var easyMDE = new EasyMDE({
-    element: document.getElementById('mde'),
-    spellChecker: false
-  });
+  function addField(index){
 
-  easyMDE.codemirror.on("change", function(){
-    item.body = easyMDE.value();
-    console.log(easyMDE.value);
-  });
-  });
-  */
+    let newitem = [];
+  	data.categories[index].fields.push(newitem);
+    data.categories[index].fields = data.categories[index].fields;
+  }
+
+  function getCatIndex(category){
+    catIndex = data.categories.findIndex(x => x.slug == category)
+  }
+
+
+
+
 
 </script>
 
@@ -41,22 +45,35 @@
 
 <div class="col-md-8" id="main">
 
+
 {#each data.entries as item }
   {#if current==item.id}
   <input bind:value={item.title} class="form-control">
 
-  <TextEditor bind:item={item}/>
+  <!-- <TextEditor bind:item={item} /> -->
 
-<!--
-  <textarea class="form-control" id="mde" bind:value={item.body}></textarea>
-  -->
 
-  <select class="form-control" bind:value={item.category}>
-  {#each data.categories as cat}
+  <Quill bind:item={item} bind:current={current} />
+
+
+  <select class="form-control" bind:value={item.category} on:change={getCatIndex(item.category)}>
+  {#each data.categories as cat, i}
   <option value="{cat.slug}">{cat.name}</option>
   {/each}
   </select>
 
+
+  {#each data.categories[catIndex].fields as field, i}
+  <div class="row" style="height: auto;">
+  <div class="col-md-4">
+  <input type="text" placeholder="name" class="form-control" bind:value={data.categories[catIndex].fields[i]}>
+  </div>
+  <div class="col-md-8">
+  <input type="text" placeholder="value" class="form-control" bind:value={item.meta[i]}>
+  </div>
+  </div>
+  {/each}
+<button class="btn btn-outline-dark" on:click={addField(catIndex)}><i class="fa fa-plus-square-o"></i> &nbsp;Add Custom Field</button>
 
   {/if}
 {/each}

@@ -1,4 +1,4 @@
-html, body, main, .row{
+html, body, main, #app, .row{
 	height: 100%;
 }
 
@@ -143,9 +143,10 @@ background-color: white;
 	margin-bottom: 15px;
 }
 
-.editor-toolbar{
-	border: 1px solid #DDD !important;
-	border-bottom: 0 !important;
+
+.ql-container{
+	padding: 10px;
+	min-height: 250px;
 }
 
 @media screen and (max-width: 750px) {

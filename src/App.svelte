@@ -1,4 +1,7 @@
 <script>
+//import { onMount } from 'svelte';
+
+
   import Posts from './components/Posts.svelte';
 	import AddPost from './components/AddPost.svelte';
 	import Categories from './components/Categories.svelte';
@@ -9,13 +12,15 @@
 	    id: '3KvB5k89',
 	    title: 'Welcome to BlogNote!',
 	    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-	    category: 'default'
+	    category: 'default',
+      meta: []
 	  }
 	];
 
 	data.categories = [{
 	    name: 'default',
-	    slug: 'default'
+	    slug: 'default',
+      fields: []
 	  }
 	];
 

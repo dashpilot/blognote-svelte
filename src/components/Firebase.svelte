@@ -33,7 +33,7 @@ import { fade, fly } from 'svelte/transition';
       console.log(user.uid);
       console.log("User is signed in");
 
-      // important! here we update the app data
+      // fetch the user's data
       let docRef = db.collection('users').doc(user.uid);
       let getDoc = docRef.get()
       .then(doc => {

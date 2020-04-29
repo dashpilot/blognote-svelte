@@ -43,7 +43,7 @@ function addCategory(){
 
   if(category.length > 4){
 
-  let newitem = {name:category, slug: slugify(category)};
+  let newitem = {name:category, slug: slugify(category), fields: {}};
   data.categories.push(newitem);
 
   data.categories = data.categories; // reassign, else it won't update
