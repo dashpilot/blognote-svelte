@@ -27,7 +27,15 @@
   }
 
 
+  function deleteEntry(){
 
+    var r = confirm("Are you sure you want to delete this note?");
+    if (r == true) {
+      let arr = data.entries.filter(x => x.id !== current)
+      data.entries = arr;
+    }
+
+  }
 
 
 </script>
@@ -98,6 +106,9 @@
 
 <ImageUpload bind:item={item} />
 
+
+<button class="btn btn-outline-dark mt-3" id="delete" on:click={deleteEntry}><i class="fa fa-trash"></i> delete note</button>
+
 {/if}
 {/each}
 
@@ -134,5 +145,11 @@ letter-spacing: 0.03em;
   background-color: #F4F5F8;
 }
 
+#delete{
+  position: fixed;
+  bottom: 20px;
+  right: 3%;
+  border: none;
+}
 
 </style>
