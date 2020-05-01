@@ -42,7 +42,7 @@ upload.addEventListener(
 
         // Upload to Firebase
         let userid = localStorage.getItem('userid');
-        let imgName = userid+'/'+item.id+'.jpg';
+        let imgName = 'users/'+userid+'/'+item.id+'.jpg';
         var imageRef = storageRef.child(imgName);
         imageRef.put(photo.data).then(function(snapshot) {
           console.log('Uploaded a blob or file!');
@@ -52,6 +52,10 @@ upload.addEventListener(
 
 
           });
+
+        }).catch(function(error) {
+          // Handle any errors
+          console.log('Error: '+error);
         });
 
         // Revoke the object URL to free up memory
