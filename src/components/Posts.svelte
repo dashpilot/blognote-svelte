@@ -67,19 +67,24 @@
   {/each}
   </select>
 
+{#if data.categories[catIndex]}
+  {#if data.categories[catIndex].fields.length > 0}
+    {#each data.categories[catIndex].fields as field, i}
 
-<label>Custom Fields</label>
-  {#each data.categories[catIndex].fields as field, i}
-  <div class="row" style="height: auto;">
-  <div class="col-md-4">
-  <input type="text" placeholder="name" class="form-control" bind:value={data.categories[catIndex].fields[i]}>
-  </div>
-  <div class="col-md-8">
-  <input type="text" placeholder="value" class="form-control" bind:value={item.meta[i]}>
-  </div>
-  </div>
-  {/each}
-<button class="btn btn-outline-dark" on:click={addField(catIndex)}><i class="fa fa-plus-square-o"></i> &nbsp;Add Custom Field</button>
+    <label>{field.name}</label>
+    {#if field.type == 'input'}
+    <input type="text" class="form-control" bind:value={item.meta[i]}>
+    {/if}
+
+    {#if field.type == 'textarea'}
+    <textarea class="form-control" bind:value={item.meta[i]}></textarea>
+    {/if}
+
+    {/each}
+  {/if}
+{/if}
+
+
 
   {/if}
 {/each}
@@ -100,9 +105,6 @@
 </div>
 
 </div>
-
-
-
 
 <style>
 #main{
@@ -131,5 +133,6 @@ letter-spacing: 0.03em;
   border-left: 1px solid #DDD;
   background-color: #F4F5F8;
 }
+
 
 </style>

@@ -1,4 +1,5 @@
 <script>
+import AddCustomFields from './AddCustomFields.svelte';
 
 export let data;
 let addcat = false;
@@ -37,16 +38,26 @@ function showAddCat(){
   addcat = true;
 }
 
+function hideAddCat(){
+  addcat = false;
+}
+
 function addCategory(){
 
   let category = document.getElementById('add-category').value;
 
   if(category.length > 4){
 
-  let newitem = {name:category, slug: slugify(category), fields: {}};
+    var form = document.querySelector('#custom-fields');
+    var formData = serialize(form);
+    //console.log(formData);
+
+  let newitem = {name:category, slug: slugify(category), fields: formData};
   data.categories.push(newitem);
 
   data.categories = data.categories; // reassign, else it won't update
+
+  console.log(data.categories);
 
   // this fixes the fact that addcat doesn't get updated
   setTimeout(() => {
@@ -74,24 +85,99 @@ function slugify(string) {
     .replace(/-+$/, '') // Trim - from end of text
 }
 
+var serialize = function (form) {
+
+	// Setup our serialized data
+	var serialized = [];
+
+	// Loop through each field in the form
+  var i2 = 0;
+	for (var i = 0; i < form.elements.length; i++) {
+
+		var field = form.elements[i];
+
+    if(field.name=='name'){
+
+      serialized[i2] = {};
+
+      serialized[i2].name = field.value;
+
+    }
+    if(field.name=='type'){
+
+      serialized[i2].type = field.value;
+
+     i2++;
+    }
+	}
+
+	return serialized;
+
+};
+
 </script>
 
 <nav>
 
 
 <div class="add-cat">
-{#if !addcat}
+
 <h6>Categories</h6>
 <button class="btn btn-outline-light nobrdr" on:click={showAddCat}><i class="fa fa-plus"></i></button>
-{:else}
-<div class="input-group mb-3">
-  <input type="text" class="form-control" placeholder="Category Name" id="add-category">
-  <div class="input-group-append">
-    <button class="btn btn-outline-light" type="button" id="button-addon" on:click={addCategory}>Add</button>
+
+</div>
+
+{#if addcat}
+
+
+
+<div class="backdrop">
+  <div class="modal" tabindex="-1" role="dialog" style="display: block;">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Add Category</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" on:click={hideAddCat}>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <input type="text" class="form-control" placeholder="Category Name" id="add-category">
+
+
+<AddCustomFields bind:categories={data.categories}/>
+
+<!--
+          {#each data.categories[catIndex].fields as field, i}
+          <div class="row" style="height: auto;">
+          <div class="col-md-4">
+          <input type="text" placeholder="name" class="form-control" bind:value={data.categories[catIndex].fields[i]}>
+          </div>
+          <div class="col-md-8">
+          <input type="text" placeholder="value" class="form-control" bind:value={item.meta[i]}>
+          </div>
+          </div>
+          {/each}
+          -->
+
+
+
+
+
+
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" on:click={addCategory}>Save</button>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
 {/if}
-</div>
+
+
 
 </nav>
 
@@ -105,3 +191,8 @@ function slugify(string) {
 {/each}
 
 </div>
+
+<style>
+h5{color: black;}
+.modal{margin-top: 4%;}
+</style>
