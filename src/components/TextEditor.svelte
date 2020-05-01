@@ -76,5 +76,4 @@ item.body = toHTML(editorState);
   border-bottom-right-radius: 0;
 }
 
-
 </style>

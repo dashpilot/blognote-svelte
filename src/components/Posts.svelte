@@ -35,7 +35,7 @@
 
 <div class="row no-gutters" id="maincols">
 
-<div class="col-md-4" id="posts">
+<div class="col-md-3" id="posts">
   {#each data.entries as item }
   <div class="item" on:click={setEntry(item)} class:active="{current === item.id}"
   	on:click="{() => current = item.id}" data-category="{item.category}">
@@ -44,7 +44,7 @@
   {/each}
 </div>
 
-<div class="col-md-8" id="main">
+<div class="col-md-7" id="main">
 
 
 
@@ -57,9 +57,8 @@
 
   <Quill bind:item={item} bind:current={current} />
 
-  <label>Cover Image</label>
-    <ImageUpload bind:item={item} />
-    <div class="clear"></div>
+
+
 
 <label>Category</label>
   <select class="form-control" bind:value={item.category} on:change={getCatIndex(item.category)}>
@@ -87,8 +86,21 @@
 
 
 </div>
+<div class="col-md-2" id="attachments">
+
+{#each data.entries as item }
+  {#if current==item.id}
+
+<ImageUpload bind:item={item} />
+
+{/if}
+{/each}
+
 
 </div>
+
+</div>
+
 
 
 
@@ -113,4 +125,11 @@ letter-spacing: 0.03em;
   clear: both;
 
 }
+
+#attachments{
+  padding: 20px;
+  border-left: 1px solid #DDD;
+  background-color: #F4F5F8;
+}
+
 </style>

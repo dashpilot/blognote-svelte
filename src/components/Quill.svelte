@@ -10,7 +10,7 @@
 
 
 	export let toolbarOptions = [
-    ["bold", "italic", "underline", "link", "image", { list: "bullet" }, { list: "ordered" }],
+    ["bold", "italic", "underline", "link", { list: "bullet" }],
 		// ["image"],
 	];
 

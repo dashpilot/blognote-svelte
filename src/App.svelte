@@ -46,7 +46,9 @@
 <div class="col-md-10">
 
   <nav class="nopad">
-  <div class="row no-gutters"><div class="col-md-4" id="postnav-left"><div class="pad"><h6>Notes</h6><AddPost bind:data={data} bind:current={current}/></div></div><div class="col-md-8"><div class="pad"><Firebase bind:data={data} bind:current={current} /></div></div></div>
+  <div class="row no-gutters"><div class="col-md-3" id="postnav-left"><div class="pad"><h6>Notes</h6><AddPost bind:data={data} bind:current={current}/></div></div>
+  <div class="col-md-9"><div class="pad"><Firebase bind:data={data} bind:current={current} /></div></div>
+  </div>
 
   </nav>
   <Posts bind:data={data} bind:current={current} />
@@ -69,13 +71,4 @@
 
 }
 
-
-/*
-#side{
-  background-image: url(/assets/img/blognote-logo-inv.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
-}
-*/
 </style>

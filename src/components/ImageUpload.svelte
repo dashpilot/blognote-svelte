@@ -48,7 +48,9 @@ upload.addEventListener(
           console.log('Uploaded a blob or file!');
           storageRef.child(imgName).getDownloadURL().then(function(url) {
 
-            item.image = url;
+            // replace link with CDN link
+            let cdn = url.replace('https://firebasestorage.googleapis.com/v0/b/blognote-ffbbb.appspot.com/o/', 'https://blognote.b-cdn.net/');
+            item.image = cdn;
 
 
           });
@@ -76,7 +78,7 @@ function handleClick(){
 
 
 <div id="uploader">
-<button class="btn btn-outline-dark" on:click={handleClick}><i class="fa fa-cloud-upload"></i> Select Image</button>
+<button class="btn btn-outline-dark w-100" on:click={handleClick}><i class="fa fa-cloud-upload"></i> Upload Image</button>
 
 <input type="file" id="upload" name="myfile">
 </div>
@@ -88,11 +90,11 @@ function handleClick(){
   display: none;
 }
 
-#uploader{
-  margin-bottom: 10px;
-}
+
 
 #preview{
-  max-width: 25%;
+  max-width: 100%;
+  border: 1px solid #DDD;
+  margin-top: 15px;
 }
 </style>
