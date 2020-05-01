@@ -145,8 +145,13 @@ background-color: white;
 
 
 .ql-container{
-	padding: 10px;
+padding: 5px;
 	min-height: 250px;
+	font-size: 15px !important;
+}
+
+.btn .fa{
+	margin-right: 5px;
 }
 
 @media screen and (max-width: 750px) {

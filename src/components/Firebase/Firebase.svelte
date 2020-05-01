@@ -1,5 +1,6 @@
 <script>
 import { fade, fly } from 'svelte/transition';
+import FirebaseConfig from './config.js';
 
   export let data;
   export let current;
@@ -9,17 +10,9 @@ import { fade, fly } from 'svelte/transition';
   let saving = false;
   let signin = false;
 
-  var firebaseConfig = {
-    apiKey: "AIzaSyBJQ3SttWZrZ7K7qKdwln7J57OjzXJ9CUc",
-    authDomain: "blognote-ffbbb.firebaseapp.com",
-    databaseURL: "https://blognote-ffbbb.firebaseio.com",
-    projectId: "blognote-ffbbb",
-    storageBucket: "blognote-ffbbb.appspot.com",
-    messagingSenderId: "803950215522",
-    appId: "1:803950215522:web:e7690ead619f6c7f84ac3b"
-  };
+
   // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(FirebaseConfig);
 
   var provider = new firebase.auth.GoogleAuthProvider();
   var db = firebase.firestore();
@@ -31,7 +24,9 @@ import { fade, fly } from 'svelte/transition';
       spinner = false;
 
       console.log(user.uid);
-      console.log("User is signed in");
+      //console.log("User is signed in");
+
+      localStorage.setItem('userid', user.uid);
 
       // fetch the user's data
       let docRef = db.collection('users').doc(user.uid);
@@ -40,7 +35,7 @@ import { fade, fly } from 'svelte/transition';
         if (!doc.exists) {
           console.log('No such document!');
         } else {
-          console.log('Document data:', doc.data());
+          //console.log('Document data:', doc.data());
 
           // important! here we update the app data
           data = doc.data();
@@ -94,7 +89,7 @@ import { fade, fly } from 'svelte/transition';
     // The signed-in user info.
     let user = result.user;
 
-    console.log(user);
+    //console.log(user);
     localStorage.setItem('username', user.displayName);
 
 
@@ -110,7 +105,7 @@ import { fade, fly } from 'svelte/transition';
     // The firebase.auth.AuthCredential type that was used.
     var credential = error.credential;
 
-    console.log(errorMessage);
+    //console.log(errorMessage);
     spinner = false;
 
   });

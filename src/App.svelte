@@ -5,7 +5,7 @@
   import Posts from './components/Posts.svelte';
 	import AddPost from './components/AddPost.svelte';
 	import Categories from './components/Categories.svelte';
-  import Firebase from './components/Firebase.svelte';
+  import Firebase from './components/Firebase/Firebase.svelte';
 
 	let data = {};
 	data.entries = [{
@@ -13,6 +13,7 @@
 	    title: 'Welcome to BlogNote!',
 	    body: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
 	    category: 'default',
+      image: '',
       meta: []
 	  }
 	];
