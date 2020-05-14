@@ -17,8 +17,9 @@
   },
   "dependencies": {
     "client-compress": "^2.1.2",
-    "prosemirror-svelte": "^0.2.3",
-    "quill": "^1.3.7",
+    "firebase-admin": "^8.12.1",
+    "node-datetime": "^2.1.2",
+    "pell": "^1.0.6",
     "sirv-cli": "^0.4.4"
   }
 }

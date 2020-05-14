@@ -1,8 +1,7 @@
 
 <script>
 
-  //import TextEditor from './TextEditor.svelte';
-  import Quill from './Quill.svelte';
+  import PellEditor from './PellEditor.svelte';
   import ImageUpload from './ImageUpload.svelte';
 
 
@@ -63,7 +62,7 @@
   <!-- <TextEditor bind:item={item} /> -->
 
 
-  <Quill bind:item={item} bind:current={current} />
+  <PellEditor bind:item={item} bind:current={current} />
 
 
 

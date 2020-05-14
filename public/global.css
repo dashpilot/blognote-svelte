@@ -183,6 +183,45 @@ textarea.form-control{
   height: 100px !important;
 }
 
+
+/* Pell editor */
+
+.pell {
+    border: 1px solid hsla(0, 0%, 4%, 0.1);
+}
+
+.pell,
+.pell-content {
+    box-sizing: border-box;
+}
+
+.pell-content {
+    height: 300px;
+    outline: 0;
+    overflow-y: auto;
+    padding: 20px;
+}
+
+.pell-actionbar {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.pell-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: 0;
+    vertical-align: bottom;
+    padding: 5px;
+    width: 40px;
+    border-right: 1px solid #DDD;
+}
+
+.pell-button-selected {
+    background-color: #f0f0f0;
+}
+
 @media screen and (max-width: 750px) {
 
 
