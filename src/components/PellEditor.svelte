@@ -43,4 +43,4 @@
   });
 </script>
 
-<div id="editor" class="pell"></div>
+<div id="editor" class="pell" />

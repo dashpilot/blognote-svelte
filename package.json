@@ -1,25 +1,24 @@
 {
-  "name": "blognote-svelte",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "rollup -c",
-    "dev": "rollup -c -w",
-    "start": "sirv public"
-  },
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "11.0.2",
-    "@rollup/plugin-node-resolve": "^7.0.0",
-    "rollup": "^1.20.0",
-    "rollup-plugin-livereload": "^1.0.0",
-    "rollup-plugin-svelte": "^5.0.3",
-    "rollup-plugin-terser": "^5.1.2",
-    "svelte": "^3.0.0"
-  },
-  "dependencies": {
-    "client-compress": "^2.1.2",
-    "firebase-admin": "^8.12.1",
-    "node-datetime": "^2.1.2",
-    "pell": "^1.0.6",
-    "sirv-cli": "^0.4.4"
-  }
+    "name": "blognote-svelte",
+    "version": "1.0.0",
+    "scripts": {
+        "build": "rollup -c",
+        "dev": "rollup -c -w",
+        "start": "sirv public"
+    },
+    "devDependencies": {
+        "@rollup/plugin-commonjs": "11.0.2",
+        "@rollup/plugin-node-resolve": "^7.0.0",
+        "rollup": "^1.20.0",
+        "rollup-plugin-livereload": "^1.0.0",
+        "rollup-plugin-svelte": "^5.0.3",
+        "rollup-plugin-terser": "^5.1.2",
+        "svelte": "^3.0.0"
+    },
+    "dependencies": {
+        "client-compress": "^2.1.2",
+        "node-datetime": "^2.1.2",
+        "pell": "^1.0.6",
+        "sirv-cli": "^0.4.4"
+    }
 }
